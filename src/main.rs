@@ -365,10 +365,22 @@ impl App {
         if let Ok(json) = serde_json::to_string_pretty(&self.config) {
             if std::fs::write(&self.config_path, &json).is_ok() {
                 self.dirty = false;
-                self.status.say(&style::fg(" Config saved to ~/.rushrc.json", 82));
+                // Send SIGUSR1 to parent rush process to trigger hot-reload
+                signal_parent_rush();
+                self.status.say(&style::fg(" Config saved (rush reloaded)", 82));
             } else {
                 self.status.say(&style::fg(" Failed to save config!", 196));
             }
+        }
+    }
+}
+
+/// Send SIGUSR1 to the parent process (rush) to trigger config reload
+fn signal_parent_rush() {
+    unsafe {
+        let ppid = libc::getppid();
+        if ppid > 1 {
+            libc::kill(ppid, libc::SIGUSR1);
         }
     }
 }
