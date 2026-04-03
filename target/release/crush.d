@@ -1,0 +1,1 @@
+/home/geir/Main/G/GIT-isene/crush/target/release/crush: /home/geir/Main/G/GIT-isene/crush/src/main.rs /home/geir/Main/G/GIT-isene/crust/src/cursor.rs /home/geir/Main/G/GIT-isene/crust/src/input.rs /home/geir/Main/G/GIT-isene/crust/src/lib.rs /home/geir/Main/G/GIT-isene/crust/src/pane.rs /home/geir/Main/G/GIT-isene/crust/src/popup.rs /home/geir/Main/G/GIT-isene/crust/src/style.rs

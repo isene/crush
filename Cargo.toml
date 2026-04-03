@@ -1,0 +1,13 @@
+[package]
+name = "crush"
+version = "0.1.0"
+edition = "2021"
+authors = ["Geir Isene <g@isene.com>"]
+description = "Interactive TUI configuration app for rush shell"
+license = "Unlicense"
+repository = "https://github.com/isene/crush"
+
+[dependencies]
+crust = { path = "../crust" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

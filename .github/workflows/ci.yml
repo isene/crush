@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  check:
+    name: Check & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: crush
+
+      - name: Checkout crust
+        uses: actions/checkout@v4
+        with:
+          repository: isene/crust
+          path: crust
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build
+        working-directory: crush
+        run: cargo build --release
+
+      - name: Binary size
+        working-directory: crush
+        run: ls -lh target/release/crush
