@@ -1,8 +1,6 @@
-use crust::{Crust, Pane, Input, Popup};
+use crust::{Crust, Pane, Input};
 use crust::style;
 use serde_json::Value;
-use std::collections::HashMap;
-use std::io::Write;
 
 const THEMES: &[&str] = &["default", "solarized", "dracula", "gruvbox", "nord", "monokai"];
 
